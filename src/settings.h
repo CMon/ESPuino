@@ -111,28 +111,28 @@
         If you don't want to assign an action or you don't use a given button: CMD_NOTHING has to be set
     */
     // *****BUTTON*****        *****ACTION*****
-    #define BUTTON_0_SHORT    CMD_NEXTTRACK
-    #define BUTTON_1_SHORT    CMD_PREVTRACK
-    #define BUTTON_2_SHORT    CMD_PLAYPAUSE
+    #define BUTTON_0_SHORT    CMD_NEXTTRACK // green
+    #define BUTTON_1_SHORT    CMD_PREVTRACK // red
+    #define BUTTON_2_SHORT    CMD_PLAYPAUSE // yellow
     #define BUTTON_3_SHORT    CMD_MEASUREBATTERY
-    #define BUTTON_4_SHORT    CMD_VOLUMEUP
-    #define BUTTON_5_SHORT    CMD_VOLUMEDOWN
+    #define BUTTON_4_SHORT    CMD_VOLUMEDOWN // white
+    #define BUTTON_5_SHORT    CMD_VOLUMEUP // black
 
     #define BUTTON_0_LONG     CMD_LASTTRACK
     #define BUTTON_1_LONG     CMD_FIRSTTRACK
     #define BUTTON_2_LONG     CMD_PLAYPAUSE
     #define BUTTON_3_LONG     CMD_SLEEPMODE
-    #define BUTTON_4_LONG     CMD_VOLUMEUP
-    #define BUTTON_5_LONG     CMD_VOLUMEDOWN
+    #define BUTTON_4_LONG     CMD_VOLUMEDOWN // white
+    #define BUTTON_5_LONG     CMD_VOLUMEUP // black
 
-    #define BUTTON_MULTI_01   CMD_NOTHING   //CMD_TOGGLE_WIFI_STATUS (disabled now to prevent children from unwanted WiFi-disable)
-    #define BUTTON_MULTI_02   CMD_ENABLE_FTP_SERVER
+    #define BUTTON_MULTI_01   CMD_NOTHING
+    #define BUTTON_MULTI_02   CMD_NOTHING
     #define BUTTON_MULTI_03   CMD_NOTHING
-    #define BUTTON_MULTI_04   CMD_NOTHING
+    #define BUTTON_MULTI_04   CMD_VOLUMEUP
     #define BUTTON_MULTI_05   CMD_NOTHING
     #define BUTTON_MULTI_12   CMD_TELL_IP_ADDRESS
     #define BUTTON_MULTI_13   CMD_NOTHING
-    #define BUTTON_MULTI_14   CMD_NOTHING
+    #define BUTTON_MULTI_14   CMD_VOLUMEDOWN
     #define BUTTON_MULTI_15   CMD_NOTHING
     #define BUTTON_MULTI_23   CMD_NOTHING
     #define BUTTON_MULTI_24   CMD_NOTHING
@@ -181,7 +181,7 @@
     //#################### Settings for optional Modules##############################
     // (optinal) Neopixel
     #ifdef NEOPIXEL_ENABLE
-        #define NUM_LEDS                    24          // number of LEDs
+        #define NUM_LEDS                    15          // number of LEDs
         #define CHIPSET                     WS2812B     // type of Neopixel
         #define COLOR_ORDER                 GRB
     #endif
