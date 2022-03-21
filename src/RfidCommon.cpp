@@ -35,9 +35,14 @@ void Rfid_PreferenceLookupHandler(void) {
 
             String s = gPrefsRfid.getString(gCurrentRfidTagId, "-1"); // Try to lookup rfidId in NVS
             if (!s.compareTo("-1")) {
-                Log_Println((char *) FPSTR(rfidTagUnknownInNvs), LOGLEVEL_ERROR);
-                System_IndicateError();
-                return;
+		#ifdef CARD_SERVER_ENABLED
+			xQueueSend(gCheckCardServerRfidQueue, gCurrentRfidTagId, 0);
+		#else
+			Log_Println((char *) FPSTR(rfidTagUnknownInNvs), LOGLEVEL_ERROR);
+			System_IndicateError();
+		#endif
+		return;
+
             }
 
             char *token;

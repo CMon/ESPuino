@@ -109,6 +109,9 @@ extern const char httpReady[];
 extern const char unableToMountSd[];
 extern const char unableToCreateVolQ[];
 extern const char unableToCreateRfidQ[];
+#ifdef CARD_SERVER_ENABLED
+    extern const char unableToCreateCardServerQ[];
+#endif
 extern const char unableToCreateMgmtQ[];
 extern const char unableToCreatePlayQ[];
 extern const char initialBrightnessfromNvs[];

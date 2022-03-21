@@ -113,6 +113,9 @@
     const char unableToMountSd[] PROGMEM = "Unable to mount sd-card.";
     const char unableToCreateVolQ[] PROGMEM = "Unable to create volume-queue.";
     const char unableToCreateRfidQ[] PROGMEM = "Unable to create RFID-queue.";
+#ifdef CARD_SERVER_ENABLED
+    const char unableToCreateCardServerQ[] PROGMEM = "Unable to create CardServer-Queue.";
+#endif
     const char unableToCreateMgmtQ[] PROGMEM = "Unable to play-management-queue.";
     const char unableToCreatePlayQ[] PROGMEM = "Unable to create track-queue..";
     const char initialBrightnessfromNvs[] PROGMEM = "Restoring initial LED-brightness from NVS";

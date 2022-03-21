@@ -7,6 +7,7 @@
 #include "Battery.h"
 #include "Bluetooth.h"
 #include "Button.h"
+#include "CardServerHandling.h"
 #include "Cmd.h"
 #include "Common.h"
 #include "Ftp.h"
@@ -173,6 +174,10 @@ void setup() {
 	// print SD card info
     SdCard_PrintInfo();
 
+    #ifdef CARD_SERVER_ENABLED
+        CardServer_Init();
+    #endif
+
     Ftp_Init();
     Mqtt_Init();
     #ifndef PN5180_ENABLE_LPCD
@@ -211,6 +216,10 @@ void loop() {
     } else {
         Wlan_Cyclic();
         Web_Cyclic();
+        #ifdef CARD_SERVER_ENABLED
+            CardServer_Cyclic();
+        #endif
+
         Ftp_Cyclic();
         RotaryEncoder_Cyclic();
         Mqtt_Cyclic();

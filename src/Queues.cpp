@@ -7,6 +7,9 @@ QueueHandle_t gVolumeQueue;
 QueueHandle_t gTrackQueue;
 QueueHandle_t gTrackControlQueue;
 QueueHandle_t gRfidCardQueue;
+#ifdef CARD_SERVER_ENABLED
+    QueueHandle_t gCheckCardServerRfidQueue;
+#endif
 
 void Queues_Init(void) {
     // Create queues
@@ -30,4 +33,11 @@ void Queues_Init(void) {
     if (gTrackQueue == NULL) {
         Log_Println((char *) FPSTR(unableToCreatePlayQ), LOGLEVEL_ERROR);
     }
+
+#ifdef CARD_SERVER_ENABLED
+    gCheckCardServerRfidQueue = xQueueCreate(1, cardIdStringSize);
+    if (gCheckCardServerRfidQueue == NULL) {
+        Log_Println((char *) FPSTR(unableToCreateCardServerQ), LOGLEVEL_ERROR);
+    }
+#endif
 }
